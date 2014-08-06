@@ -1,0 +1,103 @@
+
+<h1>File Upload Form</h1>
+<fieldset>
+    <legend>Upload File</legend>
+    <form action="upload" method="post" encType="multipart/form-data">
+        <input type="hidden" name="userId" value="1">
+        <label for="fileName">Select File: </label>
+        <input id="fileName" type="file" name="files[0]" size="30" /><br/>
+        <input  type="file" name="files[1]" size="30" /><br/>
+        <input type="submit" value="Upload"/>
+    </form>
+</fieldset>
+<pre>
+    <textarea style="width:100%;height:200px;">
+    이미지 정보 등록시 참고
+
+    <fieldset>
+        <legend>Upload File</legend>
+        <form action="upload" method="post" encType="multipart/form-data">
+            <input type="hidden" name="userId" value="1">
+            <label for="fileName">Select File: </label>
+            <input id="fileName" type="file" name="files[0]" size="30" /><br/>
+            <input  type="file" name="files[1]" size="30" /><br/>
+            <input type="submit" value="Upload"/>
+        </form>
+    </fieldset>
+    </textarea>
+</pre>
+
+<hr>
+<h3>1. 사용자 정보</h3>
+<ul>
+ <li> 조회 : <a href="/user/1?deviceId=IPONE12222220">/user/1?deviceId=IPONE12222220</a> #{deviceId}값도 필요 </li>
+ <li> 처음 앱 설치 후 로딩(userId및 phone번호가 없을 경우) : /user/authentication?deviceId=#{deviceId} </li>
+ <li> 이미 설치후 인증 여부 체크 : /user/authentication?deviceId=#{deviceId}&userId=#{userId}&phone=#{phone} </li>
+ <li> 인증완료후 API콜  : /user/add method=POST </li>
+ <li> 수정, 프로필, mail update : /user/1 method=PUT </li>
+ <li> 마지막로그인시간 업댓 : /user/login?userId=#{userId}&deviceId=#{deviceId}  method=PUT</li>
+ <li> 탈퇴 : /user/1 method=DELETE </li>
+</ul>
+
+
+<h3>2. 아이 정보</h3>
+<ul>
+    <li> 리스트 : <a href="/child/list?userId=1">/child/list?userId=1</a></li>
+    <li> 조회 : <a href="/child/1">/child/1</a></li>
+    <li> 등록 : /child/add method=POST </li>
+    <li> 수정 : /child/1 method=PUT </li>
+    <li> 삭제 : /child/1 method=DELETE </li>
+
+</ul>
+<pre>child 필수 값 //
+    child.setUserId(Long.parseLong("2"));
+    child.setName("나우리");
+    child.setImageUrl("");
+    child.setSex("F");
+    child.setBirthdayDate("20120909");
+    </pre>
+
+<h3>3. 성장정보 등록</h3>
+<ul>
+    <li> 리스트 : <a href="/growth/list?userId=1">/growth/list?userId=1</a></li>
+    <li> 조회 : <a href="/growth/1">/growth/1</a></li>
+    <li> 등록 : /growth/add method=POST </li>
+##    <li> 수정 : /growth/1 method=PUT </li>
+##    <li> 삭제 : /growth/1 method=DELETE </li>
+
+</ul>
+<pre>
+    <textarea style="width:100%;height:200px;">
+        성장 정보
+        Growth growth = new Growth();
+        growth.setGrowDate("20140102");
+        growth.setStature(Float.parseFloat("100"));
+        growth.setWeight(Float.parseFloat("10.5"));
+        growth.setNote("오늘은 잘   먹는다.ㅡ");
+
+        List<GrowthChildMap> growthChildMapList = new ArrayList<GrowthChildMap>();
+
+        GrowthChildMap growthChildMap = new GrowthChildMap();
+        growthChildMap.setChildId(Long.parseLong("1"));
+
+        growthChildMapList.add(growthChildMap);
+
+        List<GrowthItem> growthItemList = new ArrayList<GrowthItem>();
+
+        GrowthItem growthItem = new GrowthItem();
+        growthItem.setGrowthType("IMAGE"); // "PROGRESS"
+        growthItem.setImageUrl("http://i2.media.daumcdn.net/svc/image/U03/news/201407/18/yonhap/20140718212408213.jpg");
+        growthItemList.add(growthItem);
+    </textarea>
+</pre>
+<h3>4. 평균 성장 get</h3>
+<ul>
+</ul>
+<h3>5. 공지 </h3>
+<ul>
+    <li> 조회 : <a href="/notice/list">/notice/list</a></li>
+</ul>
+<h3>6. 프로그램및 버젼정보 </h3>
+<ul>
+    <li> 조회 : <a href="/program">/program</a></li>
+</ul>
