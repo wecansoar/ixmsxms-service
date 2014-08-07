@@ -143,30 +143,30 @@
         </testResources>
 
         <plugins>
-            <!-- Compiler -->
-            <!--<plugin>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<source>1.6</source>-->
-                    <!--<target>1.6</target>-->
-                    <!--<encoding>UTF-8</encoding>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+             <!--Compiler -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
 
-            <!--&lt;!&ndash; War &ndash;&gt;-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-war-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<webResources>-->
-                        <!--<resource>-->
-                            <!--<directory>${project.build.directory}/minimized</directory>-->
-                            <!--<targetPath>/</targetPath>-->
-                            <!--<filtering>false</filtering>-->
-                        <!--</resource>-->
-                    <!--</webResources>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+            <!-- War -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${project.build.directory}/minimized</directory>
+                            <targetPath>/</targetPath>
+                            <filtering>false</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
 
             <!-- yuicompressor, used webistrano -->
             <plugin>
@@ -302,21 +302,28 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <configuration>
+                            <excludes>
+                                <exclude>/integration/*</exclude>
+                                <exclude>/spike/*</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-            <!--<plugin>-->
-                <!--<artifactId>maven-resources-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>test</id>-->
-                        <!--<configuration>-->
-                            <!--<excludes>-->
-                                <!--<exclude>/integration/*</exclude>-->
-                                <!--<exclude>/spike/*</exclude>-->
-                            <!--</excludes>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>

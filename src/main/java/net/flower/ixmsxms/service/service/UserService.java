@@ -32,6 +32,7 @@ public class UserService {
         return this.userDao.select(user);
     }
 
+
     public Object authentication(User user) {
         // 전화 번호 X + 앱인증키 O
         if (user.getPhone().equals("") && !user.getAuthenticationDevice().getDeviceId().equals("")) {

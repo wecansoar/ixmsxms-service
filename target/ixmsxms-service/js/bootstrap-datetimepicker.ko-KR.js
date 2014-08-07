@@ -1,10 +1,1 @@
-;(function($){
-	$.fn.datetimepicker.dates["ko-KR"] = {
-		days: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
-		daysShort: ["일", "월", "화", "수", "목", "금", "토", "일"],
-		daysMin: ["일", "월", "화", "수", "목", "금", "토", "일"],
-		months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-		monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-		today: "Today"
-	};
-}(jQuery));
+(function(a){a.fn.datetimepicker.dates["ko-KR"]={days:["\uc77c\uc694\uc77c","\uc6d4\uc694\uc77c","\ud654\uc694\uc77c","\uc218\uc694\uc77c","\ubaa9\uc694\uc77c","\uae08\uc694\uc77c","\ud1a0\uc694\uc77c","\uc77c\uc694\uc77c"],daysShort:["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0","\uc77c"],daysMin:["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0","\uc77c"],months:["1\uc6d4","2\uc6d4","3\uc6d4","4\uc6d4","5\uc6d4","6\uc6d4","7\uc6d4","8\uc6d4","9\uc6d4","10\uc6d4","11\uc6d4","12\uc6d4"],monthsShort:["1\uc6d4","2\uc6d4","3\uc6d4","4\uc6d4","5\uc6d4","6\uc6d4","7\uc6d4","8\uc6d4","9\uc6d4","10\uc6d4","11\uc6d4","12\uc6d4"],today:"Today"}}(jQuery));

@@ -25,6 +25,9 @@
         <module name="ixmsxms-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ixmsxms-service" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
