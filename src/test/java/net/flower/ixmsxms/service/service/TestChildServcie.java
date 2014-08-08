@@ -22,7 +22,7 @@ public class TestChildServcie extends TestCore {
         child.setName("나우리");
         child.setImageUrl("");
         child.setSex("F");
-        child.setBirthdayDate("20120909");
+        child.setBirthDate("20120909");
 
         System.out.println(child);
         System.out.println( childService);

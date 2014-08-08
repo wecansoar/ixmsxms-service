@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.flower.ixmsxms.service.dao.AverageGrowthTableDao">
+    <select id="select"
+            parameterType="net.flower.ixmsxms.service.domain.AverageGrowthTable"
+            resultType="net.flower.ixmsxms.service.domain.AverageGrowthTable">
+        select
+        *
+        from average_growth_table
+        where 1 = 1
+        and type = #{type}
+        and sex = #{sex}
+        and time = #{time}
+    </select>
+</mapper>

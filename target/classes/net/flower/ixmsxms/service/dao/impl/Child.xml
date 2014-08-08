@@ -14,7 +14,8 @@
         parameterType="net.flower.ixmsxms.service.domain.Child"
         resultType="net.flower.ixmsxms.service.domain.Child">
         select
-        *
+        *,timestampdiff(MONTH, birth_date, sysdate()) months
+        , datediff(sysdate(), birth_date) + 1 days
         <include refid="fromAndWhere"/>
         and user_id = #{userId}
         order by user_id desc
@@ -24,7 +25,8 @@
             parameterType="Long"
             resultType="net.flower.ixmsxms.service.domain.Child">
         select
-        *
+        *, timestampdiff(MONTH, birth_date, sysdate()) months
+        , datediff(sysdate(), birth_date) + 1 days
         <include refid="fromAndWhere"/>
         and child_id = #{childId}
     </select>
@@ -46,7 +48,7 @@
         user_id
         , name
         , sex
-        , birthday_date
+        , birth_date
         , image_url
         , stature
         , weight
@@ -60,7 +62,7 @@
         #{userId}
         , #{name}
         , #{sex}
-        , #{birthdayDate}
+        , #{birthDate}
         , #{imageUrl}
         , #{stature}
         , #{weight}
@@ -81,7 +83,7 @@
         set
         name = #{name}
         , sex = #{email}
-        , birthday_date = #{birthdayDate}
+        , birth_date = #{birthDate}
         , image_url = #{imageUrl}
         , stature = #{stature}
         , weight = #{weight}

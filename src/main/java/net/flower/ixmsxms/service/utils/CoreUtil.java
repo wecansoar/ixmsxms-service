@@ -434,4 +434,36 @@ public class CoreUtil extends StringUtils {
             return "";
         }
     }
+
+    public static Long getDiffDays(Date fromDate, Date toDate){
+        long diffDays = 0;
+
+        if( toDate == null ){
+            toDate = new Date();
+        }
+
+        long diff = toDate.getTime() - fromDate.getTime();
+        diffDays = diff / (24 * 60 * 60 * 1000);
+        if( diffDays > 0 ){
+            diffDays = diffDays-1;
+        }
+
+        return  diffDays;
+    }
+
+    public static Long getDiffMonths(Date fromDate, Date toDate){
+        long diffMonths = 0;
+
+        if( toDate == null ){
+            toDate = new Date();
+        }
+
+        long diff = toDate.getTime() - fromDate.getTime();
+        diffMonths = diff / (24 * 60 * 60 * 1000 * 12);
+        if( diffMonths > 0 ){
+            diffMonths = diffMonths-1;
+        }
+
+        return  diffMonths;
+    }
 }

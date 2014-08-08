@@ -7,7 +7,7 @@ public class Child extends BaseObject {
     private Long userId;
     private String name;
     private String sex;
-    private String birthdayDate;
+    private String birthDate;
     private String imageUrl;
     private String status;
     private Float stature;
@@ -15,6 +15,9 @@ public class Child extends BaseObject {
     private Float headCircumference;
     private Date regDatetime;
     private Date modDatetime;
+    //related
+    private Long days;
+    private Long months;
 
     public Float getStature() {
         return stature;
@@ -72,12 +75,12 @@ public class Child extends BaseObject {
         this.sex = sex;
     }
 
-    public String getBirthdayDate() {
-        return birthdayDate;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setBirthdayDate(String birthdayDate) {
-        this.birthdayDate = birthdayDate;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getImageUrl() {
@@ -110,5 +113,15 @@ public class Child extends BaseObject {
 
     public void setModDatetime(Date modDatetime) {
         this.modDatetime = modDatetime;
+    }
+
+    public Long getDays() {
+        return days;
+    }public void setDays(Long days) {
+        this.days = days;
+    }public Long getMonths() {
+        return months;
+    }public void setMonths(Long months) {
+        this.months = months;
     }
 }

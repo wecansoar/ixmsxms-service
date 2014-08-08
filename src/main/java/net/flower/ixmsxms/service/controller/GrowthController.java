@@ -1,16 +1,24 @@
 package net.flower.ixmsxms.service.controller;
 
 
+import net.flower.ixmsxms.service.domain.AverageGrowthTable;
 import net.flower.ixmsxms.service.domain.Growth;
 import net.flower.ixmsxms.service.domain.GrowthChildMap;
 import net.flower.ixmsxms.service.domain.GrowthItem;
+import net.flower.ixmsxms.service.service.AverageGrowthTableService;
 import net.flower.ixmsxms.service.service.GrowthService;
+import net.flower.ixmsxms.service.utils.CoreUtil;
+import org.apache.commons.lang.time.FastDateFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import sun.util.resources.CalendarData;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Controller
@@ -21,6 +29,8 @@ public class GrowthController extends DefaultController {
     @Resource
     private GrowthService growthService;
 
+    @Resource
+    private AverageGrowthTableService averageGrowthTableService;
 
 
     @RequestMapping(value="/{growthId}", method=RequestMethod.GET)
@@ -45,6 +55,30 @@ public class GrowthController extends DefaultController {
         }
         return this.growthService.insert(growth, growthChildMaps, growthItems);
     }
+
+    @RequestMapping(value="/average/{sex}/{months}")
+    @ResponseBody
+    public Object view(@PathVariable("months") String months, @PathVariable("sex") String sex) {
+        if( sex != "M" || sex != "F" ){
+            this.logger.debug("@@@@ sex required");
+            throw new IllegalArgumentException("sex");
+        }
+
+        AverageGrowthTable averageGrowthTable = new AverageGrowthTable();
+        averageGrowthTable.setSex(sex);
+
+        if( Integer.parseInt(months) <= 24 ){
+            averageGrowthTable.setType("M");
+            averageGrowthTable.setTime(Long.parseLong(months));
+        }else{
+            averageGrowthTable.setType("Y");
+            Integer year = Math.round(Long.parseLong(months)/12);
+
+            averageGrowthTable.setTime(Long.parseLong(year.toString()));
+        }
+        return this.averageGrowthTableService.select(averageGrowthTable);
+    }
+
 //    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
 //    @ResponseBody
 //    public Object view(@PathVariable("userId") Long userId, User user) {
