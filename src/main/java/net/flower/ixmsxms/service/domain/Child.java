@@ -18,6 +18,7 @@ public class Child extends BaseObject {
     //related
     private Long days;
     private Long months;
+    private Long age;
 
     public Float getStature() {
         return stature;
@@ -123,5 +124,11 @@ public class Child extends BaseObject {
         return months;
     }public void setMonths(Long months) {
         this.months = months;
+    }
+    public Long getAge() {
+        return age;
+    }
+    public void setAge(Long age) {
+        this.age = age;
     }
 }
