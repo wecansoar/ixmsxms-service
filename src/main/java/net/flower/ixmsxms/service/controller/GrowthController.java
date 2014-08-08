@@ -59,10 +59,12 @@ public class GrowthController extends DefaultController {
     @RequestMapping(value="/average/{sex}/{months}")
     @ResponseBody
     public Object view(@PathVariable("months") String months, @PathVariable("sex") String sex) {
-        if( sex != "M" || sex != "F" ){
-            this.logger.debug("@@@@ sex required");
-            throw new IllegalArgumentException("sex");
-        }
+        System.out.println("@@@@violet" );
+        System.out.println(sex );
+//        if( sex != "M" &&  sex != "F" ){
+//            this.logger.debug("@@@@ sex required");
+//            throw new IllegalArgumentException("sex");
+//        }
 
         AverageGrowthTable averageGrowthTable = new AverageGrowthTable();
         averageGrowthTable.setSex(sex);

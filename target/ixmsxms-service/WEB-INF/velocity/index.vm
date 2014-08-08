@@ -92,9 +92,12 @@
 </pre>
 <h3>4. 평균 성장 get</h3>
 <ul>
+    <li> 조회 : <a href="/growth/average/M/1">/growth/average/M/1</a> /growth/average/{성별}/{개월수}</li>
+    <li>http://www.uryagi.com/uryagig4/bbs/board.php?bo_table=age_doctor&wr_id=55</li>
 </ul>
 <h3>5. 공지 </h3>
 <ul>
+
     <li> 조회 : <a href="/notice/list">/notice/list</a></li>
 </ul>
 <h3>6. 프로그램및 버젼정보 </h3>
