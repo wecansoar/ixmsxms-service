@@ -8,6 +8,7 @@ public class User extends BaseObject {
     private String name;
     private String email;
     private String phone;
+    private String imageUrl;
     private String userStatus;
     private Date lastLoginDatetime;
     private Date regDatetime;
@@ -95,4 +96,11 @@ public class User extends BaseObject {
         return this;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

@@ -49,7 +49,6 @@ public class GrowthService {
         return map;
     }
 
-
     public Map<String, Object> insert(Growth growth, List<GrowthChildMap> growthChildMaps, List<GrowthItem> growthItems) {
         Map<String, Object> map = new HashMap<String, Object>();
         this.logger.debug("@@@ growthID LONG");

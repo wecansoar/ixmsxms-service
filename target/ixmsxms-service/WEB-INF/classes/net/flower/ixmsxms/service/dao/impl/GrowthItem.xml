@@ -13,6 +13,36 @@
         and growth_id = #{growthId}
     </select>
 
+    <select id="selectListPhotoByUserId"
+            parameterType="net.flower.ixmsxms.service.domain.GrowthItem"
+            resultType="net.flower.ixmsxms.service.domain.GrowthItem">
+        select i.*
+        from growth_item i, growth g, growth_child_map m, child c
+         where 1 = 1
+           and i.growth_id = m.growth_id
+           and i.growth_type = 'IMAGE'
+           and i.growth_id = g.growth_id
+           and g.status = 'S'
+           and m.child_id = c.child_id
+           and c.child_id = #{childId}
+           limit #{start}, #{count}
+    </select>
+
+
+    <select id="selectListPhotoCountByUserId"
+            parameterType="net.flower.ixmsxms.service.domain.GrowthItem"
+            resultType="int">
+        select count(i.item_id)
+        from growth_item i, growth g, growth_child_map m, child c
+         where 1 = 1
+           and i.growth_id = m.growth_id
+           and i.growth_type = 'IMAGE'
+           and i.growth_id = g.growth_id
+           and g.status = 'S'
+           and m.child_id = c.child_id
+           and c.child_id = #{childId}
+    </select>
+
     <insert id="insert" parameterType="net.flower.ixmsxms.service.domain.GrowthItem">
         insert into growth_item
         (

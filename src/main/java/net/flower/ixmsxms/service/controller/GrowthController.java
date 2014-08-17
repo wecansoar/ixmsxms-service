@@ -6,6 +6,7 @@ import net.flower.ixmsxms.service.domain.Growth;
 import net.flower.ixmsxms.service.domain.GrowthChildMap;
 import net.flower.ixmsxms.service.domain.GrowthItem;
 import net.flower.ixmsxms.service.service.AverageGrowthTableService;
+import net.flower.ixmsxms.service.service.GrowthItemService;
 import net.flower.ixmsxms.service.service.GrowthService;
 import net.flower.ixmsxms.service.utils.CoreUtil;
 import org.apache.commons.lang.time.FastDateFormat;
@@ -30,6 +31,9 @@ public class GrowthController extends DefaultController {
     private GrowthService growthService;
 
     @Resource
+    private GrowthItemService growthItemService;
+
+    @Resource
     private AverageGrowthTableService averageGrowthTableService;
 
 
@@ -44,6 +48,22 @@ public class GrowthController extends DefaultController {
     @ResponseBody
     public Object list(Growth growth) {
         return this.growthService.selectListByUserId(growth);
+    }
+
+    @RequestMapping(value="/{type}/photo/list/{childId}", method=RequestMethod.GET)
+    @ResponseBody
+    public Object photo(@PathVariable("type") String type, @PathVariable("childId") Long childId, GrowthChildMap growthChildMap) {
+        if( !type.equals("user") && !type.equals("child")){
+            this.logger.debug("@@@@ type error");
+            throw new IllegalArgumentException("type");
+        }
+        growthChildMap.setChildId(childId);
+        if( type == "child"){
+            return this.growthItemService.selectListPhotoByUserId(growthChildMap);
+        }else{
+            return this.growthItemService.selectListPhotoByUserId(growthChildMap);
+        }
+
     }
 
     @RequestMapping(method=RequestMethod.POST)

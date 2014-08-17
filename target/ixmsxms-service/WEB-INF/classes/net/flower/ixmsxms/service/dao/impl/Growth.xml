@@ -25,7 +25,9 @@
         <include refid="fromAndWhere"/>
         and user_id = #{userId}
         and status = 'S'
+        limit #{start}, #{count}
     </select>
+
     <select id="selectListCountByUserId"
             parameterType="net.flower.ixmsxms.service.domain.Growth"
             resultType="int">

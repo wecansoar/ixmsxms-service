@@ -54,14 +54,15 @@
     child.setName("나우리");
     child.setImageUrl("");
     child.setSex("F");
-    child.setBirthdayDate("20120909");
+    child.setBirthDate("20120909");
     </pre>
 
 <h3>3. 성장정보 등록</h3>
 <ul>
-    <li> 리스트 : <a href="/growth/list?userId=1">/growth/list?userId=1</a></li>
+    <li> 리스트 : <a href="/growth/list?userId=1&count=20&page=1">/growth/list?userId=1&count=20&page=1</a></li>
     <li> 조회 : <a href="/growth/1">/growth/1</a></li>
     <li> 등록 : /growth/add method=POST </li>
+    <li> 사진리스트 : <a href="/growth/child/photo/list/1">/growth/child/photo/list/1</a> method=GET </li>
 ##    <li> 수정 : /growth/1 method=PUT </li>
 ##    <li> 삭제 : /growth/1 method=DELETE </li>
 
@@ -73,7 +74,7 @@
         growth.setGrowDate("20140102");
         growth.setStature(Float.parseFloat("100"));
         growth.setWeight(Float.parseFloat("10.5"));
-        growth.setNote("오늘은 잘   먹는다.ㅡ");
+        growth.setNote("오늘은 잘 먹는다.ㅡ");
 
         List<GrowthChildMap> growthChildMapList = new ArrayList<GrowthChildMap>();
 

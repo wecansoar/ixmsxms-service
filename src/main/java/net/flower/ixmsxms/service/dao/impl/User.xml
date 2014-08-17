@@ -43,6 +43,7 @@
               name
             , email
             , phone
+            , image_url
             , user_status
             , reg_datetime
             , mod_datetime
@@ -52,6 +53,7 @@
               #{name}
             , #{email}
             , #{phone}
+            , #{imageUrl}
             , 'AUTH'
             , sysdate()
             , sysdate()
@@ -69,6 +71,7 @@
           name = #{name}
         , email = #{email}
         , phone = #{phone}
+        , image_url = #{imageUrl}
         , user_status = #{userStatus}
         , mod_datetime = sysdate()
         where 1 = 1
