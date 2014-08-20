@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = {
-        "classpath:ixmsxms_server-servlet.xml"
+        "classpath:ixmsxms-service-servlet.xml"
         , "classpath:applicationContext.xml"
         , "classpath:persistenceContext.xml"
 }
