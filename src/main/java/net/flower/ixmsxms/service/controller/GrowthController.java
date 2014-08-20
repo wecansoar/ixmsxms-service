@@ -58,7 +58,7 @@ public class GrowthController extends DefaultController {
             throw new IllegalArgumentException("type");
         }
         growthChildMap.setChildId(childId);
-        if( type == "child"){
+        if( type.equals("child") ){
             return this.growthItemService.selectListPhotoByUserId(growthChildMap);
         }else{
             return this.growthItemService.selectListPhotoByUserId(growthChildMap);
@@ -66,7 +66,7 @@ public class GrowthController extends DefaultController {
 
     }
 
-    @RequestMapping(method=RequestMethod.POST)
+    @RequestMapping(value="/add", method=RequestMethod.POST)
     @ResponseBody
     public Object add(@RequestBody Growth growth, @RequestBody List<GrowthChildMap> growthChildMaps, @RequestBody List<GrowthItem> growthItems) {
         if( growth.getUserId().equals("") ){

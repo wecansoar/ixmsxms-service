@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.flower.ixmsxms.service.domain.AuthenticationDevice;
 import net.flower.ixmsxms.service.service.AuthenticationDeviceService;
 import net.flower.ixmsxms.service.utils.JSonResultMapping;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,39 +34,35 @@ public class UserController extends DefaultController {
         return this.userService.authentication(user);
     }
 
-    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{userId}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object view(@PathVariable("userId") Long userId, User user, AuthenticationDevice authenticationDevice) {
-
         user.setAuthenticationDevice(authenticationDevice);
         System.out.println("VIOLET ");
         System.out.println(user);
-
-
         return this.userService.select(user);
-
     }
 
-    @RequestMapping(method=RequestMethod.POST)
+    @RequestMapping(value="/add", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object add(@RequestBody User user) {
         return this.userService.insert(user);
     }
 
-    @RequestMapping(value="/{userId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{userId}", method=RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object edit(@PathVariable("userId") Long userId, @RequestBody User user) {
         user.setUserStatus("JOIN");
         return this.userService.update(user);
     }
 
-    @RequestMapping(value="/login", method=RequestMethod.PUT)
+    @RequestMapping(value="/login", method=RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object editLogin(User user) {
         return this.userService.updateLastLogin(user);
     }
 
-    @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{userId}", method=RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Object delete(@PathVariable("userId") Long userId, User user) {
         return this.userService.delete(user);
