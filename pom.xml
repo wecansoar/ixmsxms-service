@@ -18,6 +18,10 @@
             <id>central</id>
             <url>http://repo1.maven.org/maven2/</url>
         </repository>
+        <repository>
+            <id>daum-bizcontents-plugin</id>
+            <url>http://maven.daumcorp.com/content/groups/daum-bizcontents-group</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -744,11 +748,11 @@
             <version>2.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>net.nelz.simplesm</groupId>
-            <artifactId>simple-spring-memcached</artifactId>
-            <version>1.0.1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>net.nelz.simplesm</groupId>-->
+            <!--<artifactId>simple-spring-memcached</artifactId>-->
+            <!--<version>1.0.1</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -765,11 +769,11 @@
             <version>${jaxb.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>edu.emory.mathcs.backport</groupId>
-            <artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>edu.emory.mathcs.backport</groupId>-->
+            <!--<artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>-->
+            <!--<version>3.1.0</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -777,11 +781,11 @@
             <version>2.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.code.morphia</groupId>
-            <artifactId>morphia</artifactId>
-            <version>0.99</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.google.code.morphia</groupId>-->
+            <!--<artifactId>morphia</artifactId>-->
+            <!--<version>0.99</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>net.sf.json-lib</groupId>
